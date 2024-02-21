@@ -18,23 +18,17 @@ Name of the Project:
 G.G. [Globe Guidance]  
 
 Purpose of the Project:  
-The purpose of this project is to create a comprehensive Travel Guide that not only provides information about various destinations but also allows users to plan and book their trips seamlessly. The website aims to offer a one-stop solution for travelers, enabling them to explore destinations, find relevant information, and make bookings for flights, accommodations, and other travel services.  
+The purpose of this project is to create a data driven Travel Guide that not only provides information about various destinations.
 
-Target user:  
-The target users for this Travel Guide, G.G., include avid travelers, vacation planners, and anyone seeking detailed information about different travel destinations. The platform caters to individuals or groups looking for a convenient and centralized resource to plan their trips efficiently.  
+Target use:
+Based on data, one can filter through travel destinations based on preferences, ultimately suggesting a travel destination.
 
 Data to use:  
 1. Destination Information
-- Provide detailed information about various travel destinations, including attractions, cultural highlights, local cuisine, and travel tips.  
-- Include user-generated content such as reviews, ratings, and travel stories.  
+- Continent, region, country, city, population, weather, activity (culture, food or active holiday)
+- Ease of travelling there (VISA or No VISA)?
 
-2. Booking Information
-- Integrate a booking system with information on available flights, airlines, schedules, and prices.  
-- Allow users to search for flights or hotels based on their preferences and book directly through the website.  
-
-4. User Profiles and Authentication
-- Implement user authentication to enable users to create profiles, save their travel preferences, and access their booking history.  
-- Allow users to track and manage their travel plans within their profiles.  
+2. User profile with travel log(?), 
 
 ## Official Description
 This course serves as an introductory course in database management systems, focusing on the
