@@ -62,21 +62,48 @@ CREATE TABLE Reservations (
 -- add instances to schemas
 -- Insert data into Airlines table
 INSERT INTO Airlines (AirlineName, IATACode) VALUES
-('Acme Airlines', 'AA'),
-('Blue Sky Airways', 'BS'),
-('Coastal Air', 'CA');
+('Delta Air Lines', 'DL'),
+('United Airlines', 'UA'),
+('American Airlines', 'AA'),
+('Southwest Airlines', 'WN'),
+('Lufthansa', 'LH'),
+('Air France', 'AF'),
+('British Airways', 'BA'),
+('Qantas', 'QF'),
+('Emirates', 'EK'),
+('Singapore Airlines', 'SQ');
+
 
 -- Insert data into Airports table
 INSERT INTO Airports (AirportName, City, Country, IATACode) VALUES
 ('John F. Kennedy International Airport', 'New York', 'USA', 'JFK'),
 ('London Heathrow Airport', 'London', 'United Kingdom', 'LHR'),
-('Charles de Gaulle Airport', 'Paris', 'France', 'CDG');
+('Charles de Gaulle Airport', 'Paris', 'France', 'CDG'),
+('Hartsfield-Jackson Atlanta International Airport', 'Atlanta', 'USA', 'ATL'), -- Delta Air Lines
+('Chicago OHare International Airport', 'Chicago', 'USA', 'ORD'), -- United Airlines
+('Dallas/Fort Worth International Airport', 'Dallas', 'USA', 'DFW'), -- American Airlines
+('Denver International Airport', 'Denver', 'USA', 'DEN'), -- Southwest Airlines
+('Frankfurt Airport', 'Frankfurt', 'Germany', 'FRA'), -- Lufthansa
+('Amsterdam Airport Schiphol', 'Amsterdam', 'Netherlands', 'AMS'), -- KLM
+('Dubai International Airport', 'Dubai', 'UAE', 'DXB'), -- Emirates
+('Changi Airport', 'Singapore', 'Singapore', 'SIN'), -- Singapore Airlines
+('Sydney Kingsford Smith Airport', 'Sydney', 'Australia', 'SYD'); -- Qantas
+
 
 -- Insert data into Aircraft table
 INSERT INTO Aircraft (AircraftType, Capacity) VALUES
 ('Boeing 737-800', 180),
 ('Airbus A320', 150),
-('Boeing 777-300ER', 350);
+('Boeing 777-300ER', 350),
+('Airbus A380', 525), -- Emirates
+('Boeing 787-9 Dreamliner', 290), -- Qantas, United Airlines
+('Airbus A350-900', 325), -- Singapore Airlines, Lufthansa
+('Boeing 737 MAX 8', 178), -- Southwest Airlines, United Airlines
+('Airbus A330-300', 277), -- Delta Air Lines, Lufthansa
+('Boeing 747-400', 416), -- British Airways
+('Embraer E190', 100), -- American Airlines for regional routes
+('Airbus A319', 134); -- American Airlines, Delta Air Lines for shorter routes
+
 
 -- Insert data into Flights table
 INSERT INTO Flights (FlightNumber, AirlineID, OriginAirportID, DestinationAirportID, DepartureTime, ArrivalTime, AircraftID) VALUES
