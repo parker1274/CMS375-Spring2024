@@ -107,57 +107,47 @@ INSERT INTO Aircraft (AircraftType, Capacity) VALUES
 
 -- Insert data into Flights table
 INSERT INTO Flights (FlightNumber, AirlineID, OriginAirportID, DestinationAirportID, DepartureTime, ArrivalTime, AircraftID) VALUES
-('AA1234', 1, 1, 2, '2023-06-15 09:00:00', '2023-06-15 11:30:00', 1),
+('AA1234', 1, 1, 2, '2023-06-15 09:00:00', '2023-06-15 11:30:00', 1), 
 ('BS456', 2, 2, 3, '2023-06-16 14:00:00', '2023-06-16 16:15:00', 2),
-('CA789', 3, 3, 1, '2023-06-17 18:00:00', '2023-06-17 21:30:00', 3);
+('CA789', 3, 3, 1, '2023-06-17 18:00:00', '2023-06-17 21:30:00', 3),
+('DL2468', 4, 4, 5, '2023-06-18 06:00:00', '2023-06-18 08:30:00', 8), -- Delta from Atlanta to Chicago
+('UA1011', 5, 5, 6, '2023-06-19 10:00:00', '2023-06-19 11:45:00', 5), -- United from Chicago to Dallas
+('AA3322', 6, 6, 7, '2023-06-20 12:30:00', '2023-06-20 14:15:00', 10), -- American from Dallas to Denver 
+('WN678', 7, 7, 1, '2023-06-21 07:00:00', '2023-06-21 11:00:00', 7), -- Southwest from Denver to New York
+('LH890', 8, 8, 9, '2023-06-22 09:30:00', '2023-06-22 11:45:00', 6), -- Lufthansa from Frankfurt to Amsterdam
+('EK215', 9, 10, 11, '2023-06-23 08:00:00', '2023-06-23 16:30:00', 4), -- Emirates from Dubai to Singapore
+('QF127', 10, 12, 11, '2023-06-24 22:00:00', '2023-06-25 06:15:00', 5); -- Qantas from Sydney to Singapore
+
 
 -- Insert data into Passengers table
 INSERT INTO Passengers (FirstName, LastName, Email) VALUES
 ('John', 'Doe', 'john.doe@example.com'),
 ('Jane', 'Smith', 'jane.smith@example.com'),
-('Michael', 'Johnson', 'michael.johnson@example.com');
+('Michael', 'Johnson', 'michael.johnson@example.com'),
+('David', 'Williams', 'david.williams@email.com'),
+('Emily', 'Jones', 'emily.jones@email.com'),
+('Christopher', 'Brown', 'chris.brown@email.com'),
+('Sarah', 'Davis', 'sarah.davis@email.com'),
+('Matthew', 'Miller', 'matt.miller@email.com'),
+('Ashley', 'Wilson', 'ashley.wilson@email.com'),
+('Daniel', 'Moore', 'daniel.moore@email.com'),
+('Jessica', 'Garcia', 'jessica.garcia@email.com'),
+('Andrew', 'Taylor', 'andrew.taylor@email.com'),
+('Sophia', 'Martinez', 'sophia.martinez@email.com'),
+('Benjamin', 'Anderson', 'benjamin.anderson@email.com'),
+('Olivia', 'Thomas', 'olivia.thomas@email.com'),
+('William', 'Jackson', 'william.jackson@email.com'),
+('Emma', 'White', 'emma.white@email.com');
 
 -- Insert data into Reservations table
 INSERT INTO Reservations (PassengerID, FlightID, SeatNumber) VALUES
-(1, 1, '15A'),
-(2, 2, '22B'),
-(3, 3, '7C');
+((SELECT PassengerID FROM Passengers WHERE Email = 'jessica.garcia@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'DL2468'), '15A'),
+((SELECT PassengerID FROM Passengers WHERE Email = 'andrew.taylor@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'UA1011'), '22B'),
+((SELECT PassengerID FROM Passengers WHERE Email = 'sophia.martinez@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'AA3322'), '8C'),
+((SELECT PassengerID FROM Passengers WHERE Email = 'benjamin.anderson@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'WN678'), '30D'),
+((SELECT PassengerID FROM Passengers WHERE Email = 'olivia.thomas@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'LH890'), '14E'),
+((SELECT PassengerID FROM Passengers WHERE Email = 'william.jackson@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'EK215'), '42F'),
+((SELECT PassengerID FROM Passengers WHERE Email = 'emma.white@email.com'), (SELECT FlightID FROM Flights WHERE FlightNumber = 'QF127'), '18G');
 
-
-
-
-
--- DATA FROM A SPECIFIC AIRLINE DATA
-SELECT f.FlightNumber, a.AirlineName, o.AirportName AS Origin, d.AirportName AS Destination, f.DepartureTime, f.ArrivalTime
-FROM Flights f
-JOIN Airlines a ON f.AirlineID = a.AirlineID
-JOIN Airports o ON f.OriginAirportID = o.AirportID
-JOIN Airports d ON f.DestinationAirportID = d.AirportID
-WHERE a.AirlineName = 'Acme Airlines';
-
--- ALL FLIGHTS BETWEEN TWO AIRPORTS
-SELECT f.FlightNumber, a.AirlineName, o.AirportName AS Origin, d.AirportName AS Destination, f.DepartureTime, f.ArrivalTime
-FROM Flights f
-JOIN Airlines a ON f.AirlineID = a.AirlineID
-JOIN Airports o ON f.OriginAirportID = o.AirportID
-JOIN Airports d ON f.DestinationAirportID = d.AirportID
-WHERE o.AirportName = 'John F. Kennedy International Airport' AND d.AirportName = 'London Heathrow Airport';
-
--- ALL RESERVATIONS FOR A SPECIFIC PASSENGER
-SELECT p.FirstName, p.LastName, f.FlightNumber, a.AirlineName, o.AirportName AS Origin, d.AirportName AS Destination, r.SeatNumber
-FROM Reservations r
-JOIN Passengers p ON r.PassengerID = p.PassengerID
-JOIN Flights f ON r.FlightID = f.FlightID
-JOIN Airlines a ON f.AirlineID = a.AirlineID
-JOIN Airports o ON f.OriginAirportID = o.AirportID
-JOIN Airports d ON f.DestinationAirportID = d.AirportID
-WHERE p.FirstName = 'John' AND p.LastName = 'Doe';
-
--- NUMBER OF SEATS AVAILABLE ON A FLIGHT
-SELECT f.FlightNumber, a.AircraftType, a.Capacity - COUNT(r.ReservationID) AS AvailableSeats
-FROM Flights f
-JOIN Aircraft a ON f.AircraftID = a.AircraftID
-LEFT JOIN Reservations r ON f.FlightID = r.FlightID
-WHERE f.FlightNumber = 'AA1234'
-GROUP BY f.FlightNumber, a.AircraftType, a.Capacity;
+SELECT * FROM Reservations;
 
