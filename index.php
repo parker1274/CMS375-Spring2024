@@ -42,39 +42,46 @@
     
         <!-- SEARCH FLIGHTS-->
         <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-          <div class="container-fluid py-5">
-            <h1 class="display-5 fw-bold">Book flights</h1>
-            
-            <div class="row g-3">
-              <div class="col-sm-6">
-                <label for="firstName" class="form-label">Origin</label>
 
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid first name is required.
+          <form>
+            <div class="container-fluid py-5">
+              <h1 class="display-5 fw-bold">Book flights</h1>
+              
+              <div class="row g-3">
+
+                <!--Origin-->
+                <div class="col-sm-6">
+                  <label for="origin" class="form-label">Origin</label>
+                  <input type="text" class="form-control" id="origin" placeholder="ex: 'MCO'" value="" required>
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
                 </div>
-              </div>
+                
+                <!--Destination-->
+                <div class="col-sm-6">
+                  <label for="destination" class="form-label">Destination</label>
+                  <input type="text" class="form-control" id="destination" placeholder="ex: 'EWR'" value="" required="">
+                  <div class="invalid-feedback">
+                    Valid last name is required.
+                  </div>
+                </div>
+                
+                <!--Date-->
+                <div class="col-sm-6 mt-2">
+                  <label for="departure_date" class="form-label">Departure date</label>
+                  <input type="date" class="form-control" id="departure_date" name="departure_date" placeholder="" value="" required="">
+                  <div class="invalid-feedback">
+                    Valid first name is required.
+                  </div>
+                </div>
   
-              <div class="col-sm-6">
-                <label for="lastName" class="form-label">Destination</label>
-                <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid last name is required.
-                </div>
               </div>
-
-              <div class="col-sm-6 mt-2">
-                <label for="firstName" class="form-label">Date</label>
-                <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
-                <div class="invalid-feedback">
-                  Valid first name is required.
-                </div>
-              </div>
-
+              <button class="btn btn-primary btn-lg mt-5" type="submit">Search Flights</button>
             </div>
-            
-            <button class="btn btn-primary btn-lg mt-5" type="button">Search</button>
-          </div>
+
+          </form>
+          
         </div>
 
 
