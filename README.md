@@ -5,30 +5,28 @@
 
 ## Team Member
 - **Fredrik Bang-Andreasen**:    
-Project Director  
+Management Director  
 
 - **Sanghun Park**:    
-Development Director  
+Project and Development Director  
 
 - **Jack Filipanits**:  
 Visual Effect & User Experience Director  
   
 ## Abstract
 Name of the Project: 
-G.G. [Globe Guidance]  
+WPAirways
 
 Purpose of the Project:  
-The purpose of this project is to create a data driven Travel Guide that not only provides information about various destinations.
+The WPAirways project is designed as an internal management system primarily for WPAirways to streamline their operational processes. This system manages various aspects such as flight scheduling, passenger information, and airport operations. 
 
 Target use:
-Based on data, one can filter through travel destinations based on preferences, ultimately suggesting a travel destination.
+While initially developed for WPAirways, the platform is designed with scalability in mind, allowing for potential future adaptations to other airline systems. The primary users of this system are airline administrators and operational staff who require efficient access to real-time data to manage daily activities.
 
 Data to use:  
-1. Destination Information
-- Continent, region, country, city, population, weather, activity (culture, food or active holiday)
-- Ease of travelling there (VISA or No VISA)?
-
-2. User profile with travel log(?), 
+1. Flights Information
+2. Reservation Status
+3. Flight Status
 
 ## Official Description
 This course serves as an introductory course in database management systems, focusing on the
